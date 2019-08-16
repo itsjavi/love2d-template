@@ -1,0 +1,16 @@
+.DS_Store
+*.git/*
+./.idea/*
+./build/*
+./tools/*
+Makefile
+*.log
+.loveignore
+.yarnrc
+.gitignore
+package.json
+yarn.lock
+packages/push/examples/*
+packages/hump/docs/*
+packages/hump/spec/*
+.editorconfig

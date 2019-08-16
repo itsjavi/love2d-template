@@ -1,0 +1,7 @@
+{
+	"private": true,
+	"dependencies": {
+		"hump": "https://github.com/vrld/hump",
+		"push": "https://github.com/Ulydev/push"
+	}
+}
