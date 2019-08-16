@@ -1,14 +1,16 @@
 setup = Class {}
 
-VIRTUAL_WIDTH, VIRTUAL_HEIGHT = 320, 288 --virtual resolution
-DEVICE_WIDTH, DEVICE_HEIGHT = love.window.getDesktopDimensions()
+function setup:windowSize(windowScale)
+    VIRTUAL_WIDTH, VIRTUAL_HEIGHT = 320, 288 --virtual resolution
+    DEVICE_WIDTH, DEVICE_HEIGHT = love.window.getDesktopDimensions()
 
-WINDOW_WIDTH = math.min(VIRTUAL_WIDTH * 2)
-WINDOW_HEIGHT = math.min(VIRTUAL_HEIGHT * 2)
+    WINDOW_WIDTH = math.min(VIRTUAL_WIDTH * windowScale)
+    WINDOW_HEIGHT = math.min(VIRTUAL_HEIGHT * windowScale)
 
-if (WINDOW_WIDTH > DEVICE_WIDTH or WINDOW_HEIGHT > DEVICE_HEIGHT) then
-    WINDOW_WIDTH = DEVICE_WIDTH
-    WINDOW_HEIGHT = DEVICE_HEIGHT
+    if (WINDOW_WIDTH > DEVICE_WIDTH or WINDOW_HEIGHT > DEVICE_HEIGHT) then
+        WINDOW_WIDTH = DEVICE_WIDTH
+        WINDOW_HEIGHT = DEVICE_HEIGHT
+    end
 end
 
 function setup:conf(t)
@@ -17,6 +19,8 @@ function setup:conf(t)
 end
 
 function setup:load()
+    setup:windowSize(1)
+
     -- set love's default filter to "nearest-neighbor", which essentially
     -- means there will be no filtering of pixels (blurriness), which is
     -- important for a nice crisp, 2D look
@@ -41,6 +45,7 @@ function setup:load()
     ResolutionHelper:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
         resizable = true,
-        vsync = true
+        vsync = true,
+        pixelperfect = true
     })
 end

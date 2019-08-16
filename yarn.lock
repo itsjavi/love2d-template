@@ -9,3 +9,7 @@
 "push@https://github.com/Ulydev/push":
   version "0.0.0"
   resolved "https://github.com/Ulydev/push#2e18ab6c6e7bb5ee26b726aefc920e5884e48c2f"
+
+"tiled@https://github.com/karai17/Simple-Tiled-Implementation":
+  version "0.0.0"
+  resolved "https://github.com/karai17/Simple-Tiled-Implementation#a91dcb7fc8a4cb62dfbc3df674200bb094088404"
