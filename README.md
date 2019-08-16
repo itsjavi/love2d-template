@@ -1,6 +1,6 @@
 # LÖVE Game Template
 
-LÖVE game template with different build tools.
+💜 LÖVE Game Template with package management and build tools
 
 ## Requirements
 

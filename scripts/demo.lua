@@ -1,19 +1,12 @@
--- the "Class" library we're using will allow us to represent anything in
--- our game as code, rather than keeping track of many disparate variables and
--- methods
---
--- https://github.com/vrld/hump/blob/master/class.lua
-class = require 'packages/hump/class'
+demo = Class {}
 
-demo = class {}
-
-function demo:displayFPS()
+local function displayFPS()
     love.graphics.setFont(smallFont)
     love.graphics.setColor(0.5, 0, 0.5, 1)
     love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
 end
 
-function demo:displayPressedKey()
+local function displayPressedKey()
     if (nil == lastPressedKey) then
         love.graphics.print('Press any key', 10, 25)
         return nil
@@ -21,4 +14,11 @@ function demo:displayPressedKey()
     love.graphics.setFont(smallFont)
     love.graphics.setColor(0.5, 0, 0.5, 1)
     love.graphics.print('Pressed: ' .. lastPressedKey, 10, 25)
+end
+
+function demo:draw()
+    -- main canvas bg color
+    love.graphics.clear(1, 1, 1, 1)
+    displayFPS()
+    displayPressedKey()
 end
